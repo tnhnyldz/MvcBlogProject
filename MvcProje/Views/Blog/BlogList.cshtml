@@ -1,4 +1,7 @@
-﻿@model IEnumerable<EntityLayer.Concrete.Blog>
+﻿@using PagedList;
+@using PagedList.Mvc;
+
+@model IEnumerable<EntityLayer.Concrete.Blog>
 @{ string Color=" ";}
 <div class="site-section">
     <div class="container">
@@ -30,6 +33,10 @@
                 {
                     Color = "post-category text-white bg-success mb-3";
                 }
+                else if (x.Category.CategoryName == "Kültür-Sanat")
+                {
+                    Color = "post-category text-white bg-dark mb-3";
+                }
 
                 <div class="col-lg-4 mb-4">
                     <div class="entry2">
@@ -53,3 +60,4 @@
         </div>
     </div>
 </div>
+@Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new {page}))
