@@ -17,7 +17,7 @@ namespace MvcProje.Controllers
         {
             return View();
         }
-        public PartialViewResult BlogList(int page=1)
+        public PartialViewResult BlogList(int page = 1)
         {
             var bloglist = bm.GetAll().ToPagedList(page, 6);
             return PartialView(bloglist);
@@ -111,7 +111,7 @@ namespace MvcProje.Controllers
             ViewBag.blogDate4 = blogdate4
                 .ToShortDateString();
 
-                //fifth Post
+            //fifth Post
             var posttitle5 = bm.GetAll()
                 .OrderByDescending(z => z.BlogID)
                 .Where(x => x.CategoryID == 6)
@@ -144,13 +144,15 @@ namespace MvcProje.Controllers
         {
             return View();
         }
-        public PartialViewResult BlogCover()
+        public PartialViewResult BlogCover(int id)
         {
-            return PartialView();
+            var BlogDetailsList = bm.GetBlogByID(id);
+            return PartialView(BlogDetailsList);
         }
-        public PartialViewResult BlogReadAll()
+        public PartialViewResult BlogReadAll(int id)
         {
-            return PartialView();
+            var BlogDetailsList = bm.GetBlogByID(id);
+            return PartialView(BlogDetailsList);
         }
         public ActionResult BlogByCategory()
         {
