@@ -16,7 +16,7 @@
         </div>
     </div>
 </div>
-<div class="site-section bg-light">
+<div class="site-section bg-dark">
     <div class="container">
         <div class="row">
             @foreach (var item in Model)
@@ -26,9 +26,9 @@
                     <img src="/miniblog/images/img_1.jpg" alt="Image" class="img-fluid">
                 </div>
                 <div class="col-md-5 mr-auto order-md-1">
-                    <h2>Biz Kimiz </h2>
+                    <h2  style="color:white">Biz Kimiz </h2>
 
-                    <p>@item.AboutContent1</p>
+                    <p class="text-light">@item.AboutContent1</p>
 
                     <ul class="ul-check list-unstyled success">
                         <li>Her gün 10 yeni blog yazısı</li>
@@ -44,7 +44,7 @@
     </div>
 </div>
 @Html.Action("MeetTheTeam", "About")
-<div class="site-section bg-light">
+<div class="site-section bg-dark">
     <div class="container">
         <div class="row">
             @foreach (var item in Model)
@@ -55,7 +55,7 @@
 
 
                 <div class="col-md-5 ml-auto">
-                    <h2>Neler Yapıyoruz</h2>
+                    <h2  style="color:white" >Neler Yapıyoruz</h2>
 
                     <p class="mb-4">@item.AboutContent2</p>
 

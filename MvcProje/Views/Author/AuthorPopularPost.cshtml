@@ -1,6 +1,6 @@
 ﻿@model IEnumerable<EntityLayer.Concrete.Blog>
-<div class="sidebar-box">
-    <h3 class="heading">Yazarın Diğer Postları</h3>
+<div class="sidebar-box bg-dark">
+    <h2 class="heading text-white ">Yazarın Diğer Postları</h2>
     <div class="post-entry-sidebar">
         <ul>
             @foreach (var item in Model)
@@ -9,7 +9,7 @@
                     <a href="/Blog/BlogDetails/@item.BlogID">
                         <img src="@item.BlogImage" alt="Image placeholder" class="mr-4">
                         <div class="tex">
-                            <h4>@item.BlogTitle</h4>
+                            <h5 class="text-white">@item.BlogTitle</h5>
                             <div class="post-meta">
                                 <span class="mr-2">@(((DateTime)item.BlogDate).ToString("dd-MMM-yyyy"))</span>
                             </div>
