@@ -154,9 +154,18 @@ namespace MvcProje.Controllers
             var BlogDetailsList = bm.GetBlogByID(id);
             return PartialView(BlogDetailsList);
         }
-        public ActionResult BlogByCategory()
+        public ActionResult BlogByCategory(int id)
         {
-            return View();
+            var BlogListByCategory = bm.GetBlogByCategory(id);
+            var CategoryName=bm.GetBlogByCategory(id)
+                .Select(y=>y.Category.CategoryName)
+                .FirstOrDefault();
+            var CategoryDesc = bm.GetBlogByCategory(id)
+                .Select(y => y.Category.CategoryDescription)
+                .FirstOrDefault();
+            ViewBag.CategoryName = CategoryName;
+            ViewBag.CategoryDesc = CategoryDesc;
+            return View(BlogListByCategory);
         }
 
     }

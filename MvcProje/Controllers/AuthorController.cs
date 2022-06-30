@@ -22,7 +22,7 @@ namespace MvcProje.Controllers
                 .Where(x => x.BlogID == id)
                 .Select(y => y.AuthorID)
                 .FirstOrDefault();
-            var authorblogs = bm.getBlogByAuthor(blogAuthorid);
+            var authorblogs = bm.GetBlogByAuthor(blogAuthorid);
             return PartialView(authorblogs);
         }
 
