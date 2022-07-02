@@ -16,5 +16,31 @@ namespace BusinessLayer.Concrete
         {
             return repoAut.List();
         }
+        public int AddAuthorBL(Author p)
+        {
+            if (p.AuthorName == "" || p.AuthorTitle == "")
+            {
+                return -1;
+            }
+            return repoAut.Insert(p);
+        }
+        //return author by ıd
+        public Author FindAuthor(int id)
+        {
+            return repoAut.Find(x => x.AuthorID == id);
+        }
+        public int EditAuthor(Author p)
+        {
+            Author author = repoAut.Find(x => x.AuthorID == p.AuthorID);
+            author.AboutShort = p.AuthorAbout;
+            author.AuthorName = p.AuthorName;
+            author.AuthorImage = p.AuthorImage;
+            author.AuthorAbout = p.AuthorAbout;
+            author.AuthorTitle = p.AuthorTitle;
+            author.Mail = p.Mail;
+            author.Password = p.Password;
+            author.PhoneNumber = p.PhoneNumber;
+            return repoAut.Update(author);
+        }
     }
 }

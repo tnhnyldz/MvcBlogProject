@@ -1,0 +1,49 @@
+﻿@model EntityLayer.Concrete.Author
+@{
+    ViewBag.Title = "AuthorEdit";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>AuthorEdit</h2>
+
+
+
+<div class="container-fluid col-8 mt-3">
+    <h1 class="lead font-weight-normal">Yazar Ekle</h1>
+    <br />
+    <form method="post" class="form-group ">
+        @Html.Label("ID")
+        @Html.TextBoxFor(x => x.AuthorID, new { @class = "form-control bg-dark" })
+        <br />
+        @Html.Label("Yazar Adı Soyadı")
+        @Html.TextBoxFor(x => x.AuthorName, new { @class = "form-control bg-dark" })
+        <br />
+        @Html.Label("Resim Yolu")
+        @Html.TextBoxFor(x => x.AuthorImage, new { @class = "form-control bg-dark" })
+        <br />
+        @Html.Label("Yazar İlgi alanları")
+        @Html.TextBoxFor(x => x.AboutShort, new { @class = "form-control bg-dark" })
+        <br />
+        @Html.Label("Yazarın Statüsü")
+        @Html.TextBoxFor(x => x.AuthorTitle, new { @class = "form-control bg-dark" })
+        <br />
+
+        @Html.Label("Yazar Hakkında")
+        @Html.TextAreaFor(x => x.AuthorAbout, 3, 20, new { @class = "form-control bg-dark" })
+        <br />
+
+        @Html.Label("Yazar Mail")
+        @Html.TextBoxFor(x => x.Mail, new { @class = "form-control bg-dark" })
+        <br />
+
+
+        @Html.Label("Sifre")
+        @Html.TextBoxFor(x => x.Password, new { @class = "form-control bg-dark" })
+        <br />
+
+        @Html.Label("Telefon")
+        @Html.TextBoxFor(x => x.PhoneNumber, new { @class = "form-control bg-dark" })
+        <br />
+        <button class="btn btn-outline-light">Güüncelle</button>
+    </form>
+</div>
