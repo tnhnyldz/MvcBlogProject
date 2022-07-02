@@ -1,4 +1,6 @@
 ﻿using BusinessLayer.Concrete;
+using DataAccessLayer.Concrete;
+using EntityLayer.Concrete;
 using PagedList;
 using PagedList.Mvc;
 using System;
@@ -157,8 +159,8 @@ namespace MvcProje.Controllers
         public ActionResult BlogByCategory(int id)
         {
             var BlogListByCategory = bm.GetBlogByCategory(id);
-            var CategoryName=bm.GetBlogByCategory(id)
-                .Select(y=>y.Category.CategoryName)
+            var CategoryName = bm.GetBlogByCategory(id)
+                .Select(y => y.Category.CategoryName)
                 .FirstOrDefault();
             var CategoryDesc = bm.GetBlogByCategory(id)
                 .Select(y => y.Category.CategoryDescription)
@@ -167,6 +169,74 @@ namespace MvcProje.Controllers
             ViewBag.CategoryDesc = CategoryDesc;
             return View(BlogListByCategory);
         }
-
+        public ActionResult AdminBlogList()
+        {
+            var bloglist = bm.GetAll();
+            return View(bloglist);
+        }
+        [HttpGet]
+        public ActionResult AddNewBlog()
+        {
+            Context c = new Context();
+            List<SelectListItem> values = (from x in c.Categories.ToList()
+                                           select new SelectListItem
+                                           {
+                                               Text = x.CategoryName,
+                                               Value = x.CategoryID.ToString()
+                                           }).ToList();
+            List<SelectListItem> values2 = (from x in c.Authors.ToList()
+                                            select new SelectListItem
+                                            {
+                                                Text = x.AuthorName,
+                                                Value = x.AuthorID.ToString()
+                                            }).ToList();
+            ViewBag.values = values;
+            ViewBag.values2 = values2;
+            return View();
+        }
+        [HttpPost]
+        public ActionResult AddNewBlog(Blog b)
+        {
+            bm.BlogAddBL(b);
+            return RedirectToAction("AdminBlogList");
+        }
+        public ActionResult DeleteBlog(int id)
+        {
+            bm.DeleteBlogBL(id);
+            return RedirectToAction("AdminBlogList");
+        }
+        [HttpGet]
+        public ActionResult UpdateBlog(int id)
+        {
+            Context c = new Context();
+            List<SelectListItem> values = (from x in c.Categories.ToList()
+                                           select new SelectListItem
+                                           {
+                                               Text = x.CategoryName,
+                                               Value = x.CategoryID.ToString()
+                                           }).ToList();
+            List<SelectListItem> values2 = (from x in c.Authors.ToList()
+                                            select new SelectListItem
+                                            {
+                                                Text = x.AuthorName,
+                                                Value = x.AuthorID.ToString()
+                                            }).ToList();
+            ViewBag.values = values;
+            ViewBag.values2 = values2;
+            Blog blog = bm.FindBlog(id);
+            return View(blog);
+        }
+        [HttpPost]
+        public ActionResult UpdateBlog(Blog p)
+        {
+            bm.UpdateBlog(p);
+            return RedirectToAction("AdminBlogList");
+        }
+        public ActionResult GetCommentByBlog(int id)
+        {
+            CommentManager cm = new CommentManager();
+            var commentlist = cm.CommentByBlog(id);
+            return View(commentlist);
+        }
     }
 }

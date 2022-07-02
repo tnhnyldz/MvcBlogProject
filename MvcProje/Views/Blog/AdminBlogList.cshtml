@@ -1,0 +1,37 @@
+﻿@model IEnumerable<EntityLayer.Concrete.Blog>
+@{
+    ViewBag.Title = "AdminBlogList";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container-fluid col-10 mt-2">
+    <h2>Bloglar</h2>
+    <br />
+    <a href="/Blog/AddNewBlog/" class="btn btn-outline-light mb-3 ">Yeni Blog Ekle</a>
+    <table class="table table-borderless table-hover table-dark table-striped">
+        <tr>
+            <th>ID</th>
+            <th>Başlık</th>
+            <th>Kategori</th>
+            <th>Tarih</th>
+            <th>Sil</th>
+            <th>Güncelle</th>
+            <th>Detaylar</th>
+            <th>Yorumlar</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.BlogID</td>
+                <td>@item.BlogTitle</td>
+                <td>@item.Category.CategoryName</td>
+                <td>@item.BlogDate.ToShortDateString()</td>
+                <td><a href="/Blog/DeleteBlog/@item.BlogID" class="btn btn-sm btn-outline-danger d-flex justify-content-center">Sil</a></td>
+                <td><a href="/Blog/UpdateBlog/@item.BlogID" class="btn btn-sm btn-outline-warning d-flex justify-content-center">Güncelle</a></td>
+                <td><a href="/Blog/BlogDetails/@item.BlogID" class="btn btn-sm btn-outline-success d-flex justify-content-center">Detaylar</a></td>
+                <td><a href="/Blog/GetCommentByBlog/@item.BlogID" class="btn btn-sm btn-outline-info d-flex justify-content-center">Yorumlar</a></td>
+
+            </tr>
+        }
+    </table>
+</div>
