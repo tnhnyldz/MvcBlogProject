@@ -21,13 +21,38 @@ namespace BusinessLayer.Concrete
         }
         public int CommentAdd(Comment c)
         {
-            if(c.CommentText.Length<= 5 || c.CommentText.Length >= 301 || c.UserName=="" 
-                || c.Mail == "" || c.UserName.Length<=5)
+            if (c.CommentText.Length <= 5 || c.CommentText.Length >= 301 || c.UserName == ""
+                || c.Mail == "" || c.UserName.Length <= 5)
             {
                 return -1;
             }
             return repocomment.Insert(c);
 
         }
+        public List<Comment> CommentByStatusTrue()
+        {
+            return repocomment.List()
+                .Where(x => x.CommentStatus == true)
+                .ToList();
+        }
+        public List<Comment> CommentByStatusFalse()
+        {
+            return repocomment.List()
+                .Where(x => x.CommentStatus == false)
+                .ToList();
+        }
+        public int CommentStatusChangeToFalse(int id)
+        {
+            Comment comment = repocomment.Find(x => x.CommentID == id);
+            comment.CommentStatus = false;
+            return repocomment.Update(comment);
+        }
+        public int CommentStatusChangeToTrue(int id)
+        {
+            Comment comment = repocomment.Find(x => x.CommentID == id);
+            comment.CommentStatus = true;
+            return repocomment.Update(comment);
+        }
+
     }
 }

@@ -61,13 +61,28 @@
                                 </p>
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a href="../widgets.html" class="nav-link">
+                        <li class="nav-item has-treeview">
+                            <a href="#" class="nav-link">
                                 <i class="nav-icon fas fa-comment"></i>
                                 <p>
                                     Yorumlar
+                                    <i class="right fas fa-angle-left"></i>
                                 </p>
                             </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="/Comment/AdminCommentListTrue" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Yayınlanan Yorumlar</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="/Comment/AdminCommentListFalse" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Kaldırılan Yorumlar</p>
+                                    </a>
+                                </li>
+                            </ul>
                         </li>
                         <li class="nav-item">
                             <a href="../widgets.html" class="nav-link">
@@ -123,9 +138,9 @@
         </aside>
         <div class="content-wrapper bg-dark">
             <section class="content-header bg-dark">
-          
-                    @RenderBody()
-          
+
+                @RenderBody()
+
             </section>
         </div>
         <aside class="control-sidebar control-sidebar-dark">

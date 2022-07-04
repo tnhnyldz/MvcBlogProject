@@ -205,6 +205,7 @@ namespace MvcProje.Controllers
             bm.DeleteBlogBL(id);
             return RedirectToAction("AdminBlogList");
         }
+     
         [HttpGet]
         public ActionResult UpdateBlog(int id)
         {
