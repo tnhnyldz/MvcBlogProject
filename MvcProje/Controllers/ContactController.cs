@@ -20,7 +20,6 @@ namespace MvcProje.Controllers
         [HttpGet]
         public ActionResult SendMessage()
         {
-
             return View();
         }
         [HttpPost]
@@ -28,6 +27,17 @@ namespace MvcProje.Controllers
         {
             cm.BLContactAdd(p);
             return View();
+        }
+        public ActionResult SendBox()
+        {
+            var messagelist = cm.GetAll();
+            return View(messagelist);
+        }
+        public ActionResult MessageDetails(int id)
+        {
+            Contact contact = new Contact();
+            contact = cm.GetContactDetails(id);
+            return View(contact);
         }
     }
 }

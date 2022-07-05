@@ -13,11 +13,19 @@ namespace BusinessLayer.Concrete
         Repository<Contact> repoContact = new Repository<Contact>();
         public int BLContactAdd(Contact c)
         {
-            if (c.Mail=="" || c.Message=="" || c.Name=="" || c.Subject=="" || c.SurName=="")
+            if (c.Mail.Length==0 || c.Message.Length==0 || c.Name=="" || c.Subject=="" || c.SurName=="")
             {
                 return -1;
             }
             return repoContact.Insert(c);
+        }
+        public List<Contact> GetAll()
+        {
+            return repoContact.List();
+        }
+        public Contact GetContactDetails( int id)
+        {
+            return repoContact.Find(x=>x.ContactID==id);
         }
     }
 }
