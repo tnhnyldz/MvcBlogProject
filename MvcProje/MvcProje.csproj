@@ -140,6 +140,7 @@
     <Compile Include="Controllers\ChartController.cs" />
     <Compile Include="Controllers\CommentController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\MailSubscribeController.cs" />
@@ -1986,6 +1987,9 @@
     <Content Include="AdminLTE-3.0.4\plugins\toastr\toastr.min.css" />
     <Content Include="AdminLTE-3.0.4\plugins\toastr\toastr.min.js" />
     <Content Include="AdminLTE-3.0.4\starter.html" />
+    <Content Include="colorlib-error-404-3\css\style.css" />
+    <Content Include="colorlib-error-404-3\index.html" />
+    <Content Include="colorlib-error-404-3\readme.txt" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -2493,6 +2497,7 @@
     <Content Include="Views\User\BlogList.cshtml" />
     <Content Include="Views\User\UpdateBlog.cshtml" />
     <Content Include="Views\User\AddNewBlog.cshtml" />
+    <Content Include="Views\Error\Page404.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
