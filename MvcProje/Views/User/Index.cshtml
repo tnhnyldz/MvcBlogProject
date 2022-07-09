@@ -1,0 +1,33 @@
+﻿@model IEnumerable<EntityLayer.Concrete.Author>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AuthorLayout.cshtml";
+}
+<!DOCTYPE html>
+<html>
+<body class="hold-transition sidebar-mini">
+    <div class="container-fluid col-10 mt-2">
+        <div class="wrapper">
+            <section class="content">
+                <div class="container-fluid">
+                    <div class="row">
+                        <!-- /.col -->
+                        <div class="col-md-12">
+                            <div class="card bg-gradient-dark">
+                                <div class="card-body">
+                                    @Html.Action("Partial1", "User")
+                                </div><!-- /.card-body -->
+                            </div>
+                            <!-- /.nav-tabs-custom -->
+                        </div>
+                        <!-- /.col -->
+                    </div>
+                    <!-- /.row -->
+                </div><!-- /.container-fluid -->
+            </section>
+            <!-- /.content -->
+        </div>
+    </div>
+</body>
+
+</html>

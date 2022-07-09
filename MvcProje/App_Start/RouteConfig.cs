@@ -16,7 +16,7 @@ namespace MvcProje
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Comment", action = "AdminCommentListTrue", id = UrlParameter.Optional }
+                defaults: new { controller = "Login", action = "AuthorLogin", id = UrlParameter.Optional }
             );
         }
     }

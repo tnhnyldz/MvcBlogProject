@@ -8,30 +8,24 @@ using System.Threading.Tasks;
 
 namespace BusinessLayer.Concrete
 {
-    public class AuthorManager
+    public class UserProfileManager
     {
+        Repository<Author> repouser = new Repository<Author>();
+        Repository<Blog> repouserblog = new Repository<Blog>();
 
-        Repository<Author> repoAut = new Repository<Author>();
-        public List<Author> GetAll()
+        public List<Author> GetAuhorByMail(string p)
         {
-            return repoAut.List();
+           return  repouser.List().Where(x => x.Mail == p).ToList();
         }
-        public int AddAuthorBL(Author p)
+
+        public List<Blog> getBlogByAuthor(int id)
         {
-            if (p.AuthorName == "" || p.AuthorTitle == "")
-            {
-                return -1;
-            }
-            return repoAut.Insert(p);
-        }
-        //return author by ıd
-        public Author FindAuthor(int id)
-        {
-            return repoAut.Find(x => x.AuthorID == id);
+            return repouserblog.List(x => x.AuthorID == id);
+
         }
         public int EditAuthor(Author p)
         {
-            Author author = repoAut.Find(x => x.AuthorID == p.AuthorID);
+            Author author = repouser.Find(x => x.AuthorID == p.AuthorID);
             author.AboutShort = p.AboutShort;
             author.AuthorName = p.AuthorName;
             author.AuthorImage = p.AuthorImage;
@@ -40,7 +34,8 @@ namespace BusinessLayer.Concrete
             author.Mail = p.Mail;
             author.Password = p.Password;
             author.PhoneNumber = p.PhoneNumber;
-            return repoAut.Update(author);
+            return repouser.Update(author);
         }
     }
 }
+    
