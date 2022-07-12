@@ -13,11 +13,13 @@ namespace MvcProje.Controllers
         // GET: Author
         BlogManager blogManager = new BlogManager();
         AuthorManager authormanager = new AuthorManager();
+        [AllowAnonymous]
         public PartialViewResult AuthorAbout(int id)
         {
             var authordetail = blogManager.GetBlogByID(id);
             return PartialView(authordetail);
         }
+        [AllowAnonymous]
         public PartialViewResult AuthorPopularPost(int id)
         {
             var blogAuthorid = blogManager.GetAll()

@@ -9,6 +9,7 @@ using System.Web.Security;
 
 namespace MvcProje.Controllers
 {
+    [AllowAnonymous]
     public class LoginController : Controller
     {
         // GET: Login
@@ -35,6 +36,30 @@ namespace MvcProje.Controllers
                 return RedirectToAction("AuthorLogin","Login");
             }
           
+        }
+        [HttpGet]
+        public ActionResult AdminLogin()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult AdminLogin(Admin p)
+        {
+            Context c = new Context();
+            var admininfo = c.Admins
+                .FirstOrDefault(x => x.UserName == p.UserName && x.Password == p.Password);
+               
+            if (admininfo != null)
+            {
+                FormsAuthentication.SetAuthCookie(admininfo.UserName, false);
+                Session["UserName"] = admininfo.UserName.ToString();
+                return RedirectToAction("AdminBlogList", "Blog");
+            }
+            else
+            {
+                return RedirectToAction("AdminLogin", "Login");
+            }
+
         }
     } 
 }
