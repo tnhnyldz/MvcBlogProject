@@ -16,7 +16,7 @@ namespace MvcProje
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Login", action = "AuthorLogin", id = UrlParameter.Optional }
+                defaults: new { controller = "Category", action = "AdminCategoryList", id = UrlParameter.Optional }
             );
         }
     }

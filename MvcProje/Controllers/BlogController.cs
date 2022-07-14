@@ -71,7 +71,7 @@ namespace MvcProje.Controllers
                 .Where(x => x.CategoryID == 2)
                 .Select(y => y.BlogDate)
                 .FirstOrDefault();
-            var blogpostid2=bm.GetAll()
+            var blogpostid2 = bm.GetAll()
                 .OrderByDescending(z => z.BlogID)
                 .Where(x => x.CategoryID == 2)
                 .Select(y => y.BlogID)
@@ -239,7 +239,7 @@ namespace MvcProje.Controllers
             bm.DeleteBlogBL(id);
             return RedirectToAction("AdminBlogList");
         }
-     
+
         [HttpGet]
         public ActionResult UpdateBlog(int id)
         {
@@ -272,6 +272,11 @@ namespace MvcProje.Controllers
             CommentManager cm = new CommentManager();
             var commentlist = cm.CommentByBlog(id);
             return View(commentlist);
+        }
+        public ActionResult AuthorBlogList(int id)
+        {
+            var blogs = bm.GetBlogByAuthor(id);
+            return View(blogs);
         }
     }
 }

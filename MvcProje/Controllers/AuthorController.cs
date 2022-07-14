@@ -58,7 +58,5 @@ namespace MvcProje.Controllers
             authormanager.EditAuthor(p);
             return RedirectToAction("AuthorList");
         }
-
-
     }
 }
