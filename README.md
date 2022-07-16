@@ -24,6 +24,16 @@ This project was developed in 1.5 months using Asp.net MVC5, N-Tier Architecture
 
 -Relational Database
 
+-Fluent Validation
+
 -Html,Css,Bootstrap and Full Responsive Design
 
-## Screenshots
+## Screenshots - User Side
+
+![Screenshot_8](https://user-images.githubusercontent.com/44006959/179374186-be2d9101-cddc-485a-b2c0-4c62f55cc0b9.png)
+![Screenshot_1](https://user-images.githubusercontent.com/44006959/179374197-24467fbe-67b4-4b43-ac50-c04a896144a8.png)
+![Screenshot_2](https://user-images.githubusercontent.com/44006959/179374208-defe38aa-369b-42fc-a53b-ee8444a4bc5e.png)
+![Screenshot_3](https://user-images.githubusercontent.com/44006959/179374210-e9d58afb-7d59-4655-b6ca-4255dce2401e.png)
+![Screenshot_6](https://user-images.githubusercontent.com/44006959/179374216-45b85a96-a647-4067-928a-342475c967fc.png)
+![Screenshot_7](https://user-images.githubusercontent.com/44006959/179374226-2a6b5b56-7167-4308-bc62-6bb358dff2ce.png)
+![Screenshot_9](https://user-images.githubusercontent.com/44006959/179374230-684cd680-54d7-41d3-9282-3679cbc73d18.png)
