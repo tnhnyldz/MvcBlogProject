@@ -52,4 +52,11 @@ This project was developed in 1.5 months using Asp.net MVC5, N-Tier Architecture
 ![Screenshot_7](https://user-images.githubusercontent.com/44006959/179374351-731a326e-eef6-4ea7-8a23-953d37217712.png)
 # Relations
 ![Screenshot_8](https://user-images.githubusercontent.com/44006959/179374383-3aebe5b7-4c41-4a4d-9468-fe8370e4c942.png)
+# Some mobile screenshots!
+[Screenshot_1](https://user-images.githubusercontent.com/44006959/179374469-3170a1b5-ab8b-49e5-b229-cc1670e98fdd.png)
+![Screenshot_2](https://user-images.githubusercontent.com/44006959/179374474-54d5017b-7177-43f1-945b-4f3c5f5ba89d.png)
+![Screenshot_3](https://user-images.githubusercontent.com/44006959/179374476-ce36a5ec-c83d-44b8-9026-795e0eb5c3cc.png)
+![Screenshot_9](https://user-images.githubusercontent.com/44006959/179374480-def3b0ca-7f4f-4e97-8cbf-7538f057ec5e.png)
+
+
 
