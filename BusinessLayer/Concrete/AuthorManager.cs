@@ -1,4 +1,6 @@
-﻿using DataAccessLayer.Concrete;
+﻿using BusinessLayer.Abstract;
+using DataAccessLayer.Abstract;
+using DataAccessLayer.Concrete;
 using EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
@@ -8,39 +10,39 @@ using System.Threading.Tasks;
 
 namespace BusinessLayer.Concrete
 {
-    public class AuthorManager
+    public class AuthorManager: IAuthorService
     {
+        IAuthorDal _authordal;
 
         Repository<Author> repoAut = new Repository<Author>();
-        public List<Author> GetAll()
+
+        public AuthorManager(IAuthorDal authordal)
         {
-            return repoAut.List();
+            _authordal = authordal;
         }
-        public int AddAuthorBL(Author p)
+        public List<Author> GetList()
         {
-            if (p.AuthorName == "" || p.AuthorTitle == "")
-            {
-                return -1;
-            }
-            return repoAut.Insert(p);
+            return _authordal.List();
         }
-        //return author by ıd
-        public Author FindAuthor(int id)
+
+        public void AuthorAdd(Author author)
         {
-            return repoAut.Find(x => x.AuthorID == id);
+            _authordal.Insert(author);
         }
-        public int EditAuthor(Author p)
+
+        public Author GetByID(int id)
         {
-            Author author = repoAut.Find(x => x.AuthorID == p.AuthorID);
-            author.AboutShort = p.AboutShort;
-            author.AuthorName = p.AuthorName;
-            author.AuthorImage = p.AuthorImage;
-            author.AuthorAbout = p.AuthorAbout;
-            author.AuthorTitle = p.AuthorTitle;
-            author.Mail = p.Mail;
-            author.Password = p.Password;
-            author.PhoneNumber = p.PhoneNumber;
-            return repoAut.Update(author);
+            return _authordal.GetByID(id);
+        }
+
+        public void AuthorDelete(Author author)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void AuthorUpdate(Author author)
+        {
+            _authordal.Update(author);
         }
     }
 }

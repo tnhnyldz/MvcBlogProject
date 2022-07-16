@@ -1,4 +1,5 @@
 ﻿using BusinessLayer.Concrete;
+using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
@@ -11,33 +12,33 @@ namespace MvcProje.Controllers
     [AllowAnonymous]
     public class AboutController : Controller
     {
-        AboutManager abm = new AboutManager();
+        AboutManager abm = new AboutManager(new EfAboutDal());
         public ActionResult Index()
         {
-            var AboutContent = abm.GetAll();
+            var AboutContent = abm.GetList();
             return View(AboutContent);
         }
         public PartialViewResult Footer()
         {
-            var aboutcontentlist = abm.GetAll();
+            var aboutcontentlist = abm.GetList();
             return PartialView(aboutcontentlist);
         }
         public PartialViewResult MeetTheTeam()
         {
-            AuthorManager autman = new AuthorManager();
-            var authorlist = autman.GetAll();
+            AuthorManager autman = new AuthorManager(new EfAuthorDal());
+            var authorlist = autman.GetList();
             return PartialView(authorlist);
         }
         [HttpGet]
         public ActionResult UpdateAboutList()
         {
-            var aboutList = abm.GetAll();
+            var aboutList = abm.GetList();
             return View(aboutList);
         }
         [HttpPost]
         public ActionResult UpdateAbout(About p)
         {
-            abm.UpdateAboutBM(p);
+            abm.AboutUpdate(p);
             return RedirectToAction("UpdateAboutList");
         }
     }

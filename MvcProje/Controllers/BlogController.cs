@@ -1,5 +1,6 @@
 ﻿using BusinessLayer.Concrete;
 using DataAccessLayer.Concrete;
+using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
 using PagedList;
 using PagedList.Mvc;
@@ -14,7 +15,8 @@ namespace MvcProje.Controllers
     public class BlogController : Controller
     {
         // GET: Blog
-        BlogManager bm = new BlogManager();
+        BlogManager bm = new BlogManager(new EfBlogDal());
+        CommentManager cm = new CommentManager(new EfCommentDal());
         [AllowAnonymous]
         public ActionResult Index()
         {
@@ -23,29 +25,29 @@ namespace MvcProje.Controllers
         [AllowAnonymous]
         public PartialViewResult BlogList(int page = 1)
         {
-            var bloglist = bm.GetAll().ToPagedList(page, 6);
+            var bloglist = bm.GetList().ToPagedList(page, 6);
             return PartialView(bloglist);
         }
         [AllowAnonymous]
         public PartialViewResult FeaturedPosts()
         {
             //First Post
-            var posttitle1 = bm.GetAll()
+            var posttitle1 = bm.GetList()
                 .OrderByDescending(z => z.BlogID)
                 .Where(x => x.CategoryID == 1)
                 .Select(y => y.BlogTitle)
                 .FirstOrDefault();
-            var postimage1 = bm.GetAll()
+            var postimage1 = bm.GetList()
                 .OrderByDescending(z => z.BlogID)
                 .Where(x => x.CategoryID == 1)
                 .Select(y => y.BlogImage)
                 .FirstOrDefault();
-            var blogdate1 = bm.GetAll()
+            var blogdate1 = bm.GetList()
                 .OrderByDescending(z => z.BlogID)
                 .Where(x => x.CategoryID == 1)
                 .Select(y => y.BlogDate)
                 .FirstOrDefault();
-            var blogpostid1 = bm.GetAll()
+            var blogpostid1 = bm.GetList()
                 .OrderByDescending(z => z.BlogID)
                 .Where(x => x.CategoryID == 1)
                 .Select(y => y.BlogID)
@@ -56,22 +58,22 @@ namespace MvcProje.Controllers
                 .ToShortDateString();
             ViewBag.BlogPostID1 = blogpostid1;
             //Second Post
-            var posttitle2 = bm.GetAll()
+            var posttitle2 = bm.GetList()
                 .OrderByDescending(z => z.BlogID)
                 .Where(x => x.CategoryID == 2)
                 .Select(y => y.BlogTitle)
                 .FirstOrDefault();
-            var postimage2 = bm.GetAll()
+            var postimage2 = bm.GetList()
                 .OrderByDescending(z => z.BlogID)
                 .Where(x => x.CategoryID == 2)
                 .Select(y => y.BlogImage)
                 .FirstOrDefault();
-            var blogdate2 = bm.GetAll()
+            var blogdate2 = bm.GetList()
                 .OrderByDescending(z => z.BlogID)
                 .Where(x => x.CategoryID == 2)
                 .Select(y => y.BlogDate)
                 .FirstOrDefault();
-            var blogpostid2 = bm.GetAll()
+            var blogpostid2 = bm.GetList()
                 .OrderByDescending(z => z.BlogID)
                 .Where(x => x.CategoryID == 2)
                 .Select(y => y.BlogID)
@@ -82,22 +84,22 @@ namespace MvcProje.Controllers
                 .ToShortDateString();
             ViewBag.BlogPostID2 = blogpostid2;
             //third Post
-            var posttitle3 = bm.GetAll()
+            var posttitle3 = bm.GetList()
                 .OrderByDescending(z => z.BlogID)
                 .Where(x => x.CategoryID == 3)
                 .Select(y => y.BlogTitle)
                 .FirstOrDefault();
-            var postimage3 = bm.GetAll()
+            var postimage3 = bm.GetList()
                 .OrderByDescending(z => z.BlogID)
                 .Where(x => x.CategoryID == 3)
                 .Select(y => y.BlogImage)
                 .FirstOrDefault();
-            var blogdate3 = bm.GetAll()
+            var blogdate3 = bm.GetList()
                 .OrderByDescending(z => z.BlogID)
                 .Where(x => x.CategoryID == 3)
                 .Select(y => y.BlogDate)
                 .FirstOrDefault();
-            var blogpostid3 = bm.GetAll()
+            var blogpostid3 = bm.GetList()
              .OrderByDescending(z => z.BlogID)
              .Where(x => x.CategoryID == 3)
              .Select(y => y.BlogID)
@@ -109,22 +111,22 @@ namespace MvcProje.Controllers
             ViewBag.BlogPostID3 = blogpostid3;
 
             //fourth Post
-            var posttitle4 = bm.GetAll()
+            var posttitle4 = bm.GetList()
                 .OrderByDescending(z => z.BlogID)
                 .Where(x => x.CategoryID == 4)
                 .Select(y => y.BlogTitle)
                 .FirstOrDefault();
-            var postimage4 = bm.GetAll()
+            var postimage4 = bm.GetList()
                 .OrderByDescending(z => z.BlogID)
                 .Where(x => x.CategoryID == 4)
                 .Select(y => y.BlogImage)
                 .FirstOrDefault();
-            var blogdate4 = bm.GetAll()
+            var blogdate4 = bm.GetList()
                 .OrderByDescending(z => z.BlogID)
                 .Where(x => x.CategoryID == 4)
                 .Select(y => y.BlogDate)
                 .FirstOrDefault();
-            var blogpostid4 = bm.GetAll()
+            var blogpostid4 = bm.GetList()
              .OrderByDescending(z => z.BlogID)
              .Where(x => x.CategoryID == 4)
              .Select(y => y.BlogID)
@@ -135,22 +137,22 @@ namespace MvcProje.Controllers
                 .ToShortDateString();
             ViewBag.BlogPostID4 = blogpostid4;
             //fifth Post
-            var posttitle5 = bm.GetAll()
+            var posttitle5 = bm.GetList()
                 .OrderByDescending(z => z.BlogID)
                 .Where(x => x.CategoryID == 6)
                 .Select(y => y.BlogTitle)
                 .FirstOrDefault();
-            var postimage5 = bm.GetAll()
+            var postimage5 = bm.GetList()
                 .OrderByDescending(z => z.BlogID)
                 .Where(x => x.CategoryID == 6)
                 .Select(y => y.BlogImage)
                 .FirstOrDefault();
-            var blogdate5 = bm.GetAll()
+            var blogdate5 = bm.GetList()
                 .OrderByDescending(z => z.BlogID)
                 .Where(x => x.CategoryID == 6)
                 .Select(y => y.BlogDate)
                 .FirstOrDefault();
-            var blogpostid5 = bm.GetAll()
+            var blogpostid5 = bm.GetList()
              .OrderByDescending(z => z.BlogID)
              .Where(x => x.CategoryID == 6)
              .Select(y => y.BlogID)
@@ -200,12 +202,12 @@ namespace MvcProje.Controllers
         }
         public ActionResult AdminBlogList()
         {
-            var bloglist = bm.GetAll();
+            var bloglist = bm.GetList();
             return View(bloglist);
         }
         public ActionResult AdminBlogList2()
         {
-            var bloglist = bm.GetAll();
+            var bloglist = bm.GetList();
             return View(bloglist);
         }
         [Authorize(Roles ="A")]
@@ -232,12 +234,13 @@ namespace MvcProje.Controllers
         [HttpPost]
         public ActionResult AddNewBlog(Blog b)
         {
-            bm.BlogAddBL(b);
+            bm.BlogAdd(b);
             return RedirectToAction("AdminBlogList");
         }
         public ActionResult DeleteBlog(int id)
         {
-            bm.DeleteBlogBL(id);
+            Blog Blog = bm.GetByID(id);
+            bm.BlogDelete(Blog);
             return RedirectToAction("AdminBlogList");
         }
 
@@ -259,18 +262,17 @@ namespace MvcProje.Controllers
                                             }).ToList();
             ViewBag.values = values;
             ViewBag.values2 = values2;
-            Blog blog = bm.FindBlog(id);
+            Blog blog = bm.GetByID(id);
             return View(blog);
         }
         [HttpPost]
         public ActionResult UpdateBlog(Blog p)
         {
-            bm.UpdateBlog(p);
+            bm.BlogUpdate(p);
             return RedirectToAction("AdminBlogList");
         }
         public ActionResult GetCommentByBlog(int id)
         {
-            CommentManager cm = new CommentManager();
             var commentlist = cm.CommentByBlog(id);
             return View(commentlist);
         }

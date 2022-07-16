@@ -1,5 +1,6 @@
 ﻿using BusinessLayer.Concrete;
 using DataAccessLayer.Concrete;
+using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
@@ -16,7 +17,7 @@ namespace MvcProje.Controllers
         // GET: User
         UserProfileManager userProfile =
             new UserProfileManager();
-        BlogManager bm = new BlogManager();
+        BlogManager bm = new BlogManager(new EfBlogDal());
         public ActionResult Index()
         {
             return View();
@@ -63,13 +64,13 @@ namespace MvcProje.Controllers
                                             }).ToList();
             ViewBag.values = values;
             ViewBag.values2 = values2;
-            Blog blog = bm.FindBlog(id);
+            Blog blog = bm.GetByID(id);
             return View(blog);
         }
         [HttpPost]
         public ActionResult UpdateBlog(Blog p)
         {
-            bm.UpdateBlog(p);
+            bm.BlogUpdate(p);
             return RedirectToAction("BlogList");
         }
 
@@ -96,7 +97,7 @@ namespace MvcProje.Controllers
         [HttpPost]
         public ActionResult AddNewBlog(Blog b)
         {
-            bm.BlogAddBL(b);
+            bm.BlogAdd(b);
             return RedirectToAction("BlogList");
         }
         public ActionResult LogOut()

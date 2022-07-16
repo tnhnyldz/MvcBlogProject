@@ -18,6 +18,8 @@
         <br />
         @Html.Label("Açıklama")
         @Html.TextBoxFor(x => x.CategoryDescription, new { @class = "form-control bg-dark" })
+        @Html.ValidationMessageFor(x => x.CategoryDescription)
+        <br />
         <button class="btn btn-outline-light">Güncelle</button>
     </form>
 </div>

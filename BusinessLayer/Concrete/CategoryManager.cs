@@ -1,4 +1,6 @@
-﻿using DataAccessLayer.Concrete;
+﻿using BusinessLayer.Abstract;
+using DataAccessLayer.Abstract;
+using DataAccessLayer.Concrete;
 using EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
@@ -8,39 +10,60 @@ using System.Threading.Tasks;
 
 namespace BusinessLayer.Concrete
 {
-    public class CategoryManager
+    public class CategoryManager : ICategoryService
     {
         Repository<Category> repocategory = new Repository<Category>();
+
+
+        ICategoryDal _categoryDal;
+
+        public CategoryManager(ICategoryDal categoryDal)
+        {
+            _categoryDal = categoryDal;
+        }
+
         public List<Category> GetAll()
         {
-            return repocategory.List();
+            return _categoryDal.List();
         }
-        public int CategoryAddBL(Category p)
-        {
-            return repocategory.Insert(p);
-        }
-        public Category FindCategory(int id)
-        {
-            return repocategory.Find(x => x.CategoryID == id);
-        }
-        public int EditCategory(Category p)
-        {
-            Category category = repocategory.Find(x => x.CategoryID == p.CategoryID);
-            category.CategoryName = p.CategoryName;
-            category.CategoryDescription = p.CategoryDescription;
-            return repocategory.Update(category);
-        }
-        public int CategoryStatusFalseBL(int id)
+      
+        public void CategoryStatusFalseBL(int id)
         {
             Category category = repocategory.Find(x => x.CategoryID == id);
             category.CategoryStatus = false;
-            return repocategory.Update(category);
+            _categoryDal.Update(category);
         }
-        public int CategoryStatusTrueBL(int id)
+        public void CategoryStatusTrueBL(int id)
         {
             Category category = repocategory.Find(x => x.CategoryID == id);
             category.CategoryStatus = true;
-            return repocategory.Update(category);
+            _categoryDal.Update(category);
+        }
+
+
+        public List<Category> GetList()
+        {
+            return _categoryDal.List();
+        }
+
+        public void CategoryAdd(Category category)
+        {
+            _categoryDal.Insert(category);
+        }
+
+        public Category GetByID(int id)
+        {
+            return _categoryDal.GetByID(id);
+        }
+
+        public void CategoryDelete(Category category)
+        {
+            _categoryDal.Delete(category);
+        }
+
+        public void CategoryUpdate(Category category)
+        {
+            _categoryDal.Update(category);
         }
     }
 }
