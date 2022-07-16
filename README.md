@@ -28,7 +28,7 @@ This project was developed in 1.5 months using Asp.net MVC5, N-Tier Architecture
 
 -Html,Css,Bootstrap and Full Responsive Design
 
-## Screenshots - User Side
+# Screenshots - User Section
 
 ![Screenshot_8](https://user-images.githubusercontent.com/44006959/179374186-be2d9101-cddc-485a-b2c0-4c62f55cc0b9.png)
 ![Screenshot_1](https://user-images.githubusercontent.com/44006959/179374197-24467fbe-67b4-4b43-ac50-c04a896144a8.png)
@@ -37,3 +37,10 @@ This project was developed in 1.5 months using Asp.net MVC5, N-Tier Architecture
 ![Screenshot_6](https://user-images.githubusercontent.com/44006959/179374216-45b85a96-a647-4067-928a-342475c967fc.png)
 ![Screenshot_7](https://user-images.githubusercontent.com/44006959/179374226-2a6b5b56-7167-4308-bc62-6bb358dff2ce.png)
 ![Screenshot_9](https://user-images.githubusercontent.com/44006959/179374230-684cd680-54d7-41d3-9282-3679cbc73d18.png)
+
+# Screenshots - Writer Section
+![Screenshot_1](https://user-images.githubusercontent.com/44006959/179374284-2aedcb48-4c27-4c6f-9dd0-5fdaef2a4d58.png)
+![Screenshot_3](https://user-images.githubusercontent.com/44006959/179374289-dd9d3cf8-0b4a-466e-9e75-da2b21f1abe8.png)
+![Screenshot_2](https://user-images.githubusercontent.com/44006959/179374292-361bcec0-89b4-4bb0-8a51-e067a30d1dda.png)
+
+
