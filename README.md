@@ -12,6 +12,10 @@ This project was developed in 1.5 months using Asp.net MVC5, N-Tier Architecture
 
 -Repository Design Pattern
 
+-C# Programming Language
+
+- OOP Principles
+
 -Code First
 
 -Entity Framework
@@ -20,7 +24,7 @@ This project was developed in 1.5 months using Asp.net MVC5, N-Tier Architecture
 
 -Repository Design Pattern
 
--Repository Design Pattern
+-N tier architecture
 
 -Relational Database
 
