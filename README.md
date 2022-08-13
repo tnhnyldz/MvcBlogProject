@@ -14,7 +14,7 @@ This project was developed in 1.5 months using Asp.net MVC5, N-Tier Architecture
 
 -C# Programming Language
 
-- OOP Principles
+-OOP Principles
 
 -Code First
 
